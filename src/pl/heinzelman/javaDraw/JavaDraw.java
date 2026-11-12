@@ -1,12 +1,12 @@
 package pl.heinzelman.javaDraw;
 
-import pl.heinzelman.javaDraw.actions.myBar;
 import pl.heinzelman.javaDraw.controller.Controller;
 import pl.heinzelman.javaDraw.model.Model;
 import pl.heinzelman.javaDraw.view.View;
 import pl.heinzelman.javaDraw.view.Window;
 
 import javax.swing.*;
+import java.awt.*;
 
 /**
  *  JavaDraw - program rysujący wykres, pobierający
@@ -38,16 +38,14 @@ public class JavaDraw{
 
 	public static void main(String[] args) {
 
-		Window win   = new Window(); win.setVisible(true);
+		Window win   = new Window(); win.setVisible(true); // win.setPreferredSize( new Dimension(1200, 700 ) );
 		Model  model = new Model();
 		View   view  = new View( model , win );
 		Controller controller = new Controller( model, view );
+		controller.draw();
 
-		JMenuBar menuBar = new myBar( win, model, controller );
-		win.setJMenuBar( menuBar );
 		win.add(view);
-
 		win.setVisible(true);
-
+		while( win.isVisible() ){  }
 	}
 	}

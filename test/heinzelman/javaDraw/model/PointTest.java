@@ -10,6 +10,5 @@ class PointTest {
     void START() {
         String[] args = new String[0];
         JavaDraw.main( args );
-
     }
 }
